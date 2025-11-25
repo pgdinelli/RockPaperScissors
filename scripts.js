@@ -16,7 +16,12 @@ function main() {
                 return 'Scissors';
         }
     }
-     
+
+    function getHumanChoice(){
+        const choice = prompt('Enter your choice:');
+        return choice;
+    }
+
 }
 
 main();
