@@ -1,6 +1,7 @@
 function main() {
     let humanScore = 0;
     let computerScore = 0;
+    const numberOfRounds = 5;
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -45,7 +46,7 @@ function main() {
         
     }
     
-    for(let i = 0; i <= 4; i++){
+    for(let i = 0; i < numberOfRounds; i++){
         playGame();
     }
     
