@@ -43,19 +43,23 @@ function main() {
         } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
             computerScore++;
         }
-        
+
     }
-    
-    for(let i = 0; i < numberOfRounds; i++){
+
+    function checksWinner() {
+        if (computerScore > humanScore)
+            return `${computerScore} ${humanScore} Computer wins!`;
+        else if (computerScore < humanScore)
+            return `${computerScore} ${humanScore} You win!`;
+        else
+            return `${computerScore} ${humanScore} Tie!`;
+    }
+
+    for (let i = 0; i < numberOfRounds; i++) {
         playGame();
     }
-    
-    if (computerScore > humanScore)
-        console.log(computerScore, humanScore, 'Computer wins!');
-    else if (computerScore < humanScore)
-        console.log(computerScore, humanScore, 'You win!');
-    else
-        console.log(computerScore, humanScore, 'Tie!');
+
+    console.log(checksWinner());
 }
 
 main();
