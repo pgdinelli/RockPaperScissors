@@ -8,9 +8,19 @@ function main() {
     const scissorsBtn = document.querySelector('.scissors');
     const result = document.querySelector('.results');
 
-    rockBtn.addEventListener("click", playGame);
-    paperBtn.addEventListener("click", playGame);
-    scissorsBtn.addEventListener("click", playGame);
+    const buttons = document.querySelectorAll('button').forEach(button => {
+        button.addEventListener("click", () => {
+            if(button === rockBtn)
+                alert('rock')
+            else if(button === paperBtn)
+                alert('paper')
+            else if(button === scissorsBtn)
+                alert('scissors')
+        })
+    });
+    // rockBtn.addEventListener("click", playGame);
+    // paperBtn.addEventListener("click", playGame);
+    // scissorsBtn.addEventListener("click", playGame);
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
