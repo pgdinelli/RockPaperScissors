@@ -3,6 +3,15 @@ function main() {
     let computerScore = 0;
     const numberOfRounds = 5;
 
+    const rockBtn = document.querySelector('.rock');
+    const paperBtn = document.querySelector('.paper');
+    const scissorsBtn = document.querySelector('.scissors');
+    const result = document.querySelector('.results');
+
+    rockBtn.addEventListener("click", playGame);
+    paperBtn.addEventListener("click", playGame);
+    scissorsBtn.addEventListener("click", playGame);
+
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
@@ -55,9 +64,15 @@ function main() {
             return `${computerScore} ${humanScore} Tie!`;
     }
 
-    for (let i = 0; i < numberOfRounds; i++) {
-        playGame();
+    if(humanScore === 5 || computerScore === 5)
+        result.textContent = checksWinner();
+    else {
+        result.textContent = '';
     }
+
+    // for (let i = 0; i < numberOfRounds; i++) {
+    //     playGame();
+    // }
 
     console.log(checksWinner());
 }
