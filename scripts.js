@@ -6,11 +6,12 @@ function main() {
     const paperBtn = document.querySelector('.paper');
     const scissorsBtn = document.querySelector('.scissors');
     const result = document.querySelector('.results');
+    const btnClear = document.querySelector('.clear');
 
     const buttons = document.querySelectorAll('button').forEach(button => {
         button.addEventListener("click", () => {
             const computerChoice = getComputerChoice().toLowerCase();
-            
+
             if (button === rockBtn && computerChoice === 'scissors') {
                 humanScore++;
                 result.innerHTML += `<p>${humanScore} ${computerScore} You win! Rock beats Scissors</p>`;
@@ -33,10 +34,18 @@ function main() {
                 result.innerHTML += `<p>${humanScore} ${computerScore} Tied</p>`
             }
 
-            if (humanScore === 5 || computerScore === 5)
+            if (humanScore === 5 || computerScore === 5) {
                 result.innerHTML = checksWinner();
+            }
         });
     });
+
+    btnClear.addEventListener("click", () => {
+        if(result.innerHTML !== '')
+            result.innerHTML = '';
+        humanScore = 0;
+        computerScore = 0;
+    })
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
